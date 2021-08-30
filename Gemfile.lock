@@ -65,6 +65,7 @@ GEM
     autoprefixer-rails (10.2.5.0)
       execjs (< 2.8.0)
     bcrypt (3.1.16)
+    bigdecimal (3.0.2)
     bindex (0.8.1)
     bootsnap (1.8.1)
       msgpack (~> 1.0)
@@ -239,6 +240,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
+  bigdecimal
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
