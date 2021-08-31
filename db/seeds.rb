@@ -5,3 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+johannes = User.create!(
+  email: 'jonnyfoerster@gmail.com',
+  password: 'stinkysocks',
+  username: 'johannes'
+)
+10.times do
+  place = Place.create!(
+    name: 'beigel master',
+    category: ['food', 'nightlife', 'activities', 'shopping', 'services'].sample,
+    summary: 'good beigel', description: 'this bagel really slaps',
+    address: Faker::Address.street_address,
+    user: johannes
+  )
+  puts place.name
+end

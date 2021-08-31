@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def categories
+    @categories = ['food', 'nightlife', 'activities', 'shopping', 'services']
+  end
 end
