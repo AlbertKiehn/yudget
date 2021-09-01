@@ -22,3 +22,13 @@ johannes = User.create!(
   )
   puts place.name
 end
+
+beigel = Place.create!(
+  name: 'bakery',
+  category: 'food',
+  summary: 'best beigel in town', description: 'this pne is better',
+  address: '159 Brick Ln, London E1 6SB',
+  user: johannes
+)
+
+puts beigel.name

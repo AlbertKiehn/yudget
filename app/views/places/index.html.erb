@@ -1,4 +1,4 @@
 <% @places.each do |place| %>
-<h1> <%= link_to place.name, place_path(place) %></h1>
+<h1> <%= link_to place.name, place_path(place, :spot => @location) %></h1>
 <h4> <%= place.summary %></h4>
 <% end %>

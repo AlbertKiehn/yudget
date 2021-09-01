@@ -2,3 +2,4 @@
 <h1> <%= @place.description %></h1>
 <h1> <%= @place.address %></h1>
 <h1> <%= @place.user.username %></h1>
+<h1> <%= (@place.distance_to(@location) * 1000).round %></h1>
