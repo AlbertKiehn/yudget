@@ -2,3 +2,13 @@
 <h1> <%= @place.description %></h1>
 <h1> <%= @place.address %></h1>
 <h1> <%= @place.user.username %></h1>
+
+ <div class="card ml-4 mr-4 rounded p-3 shadow" style=" max-width: 100%;">
+  <div class="row g-0 ">
+    <div class="col-md-4">
+        <% if @place.photo.attached? %>
+          <%= cl_image_tag @place.photo.key, height: 350, width: 450, crop: :fill %>
+        <% end %>
+        </div>
+    </div>
+</div>

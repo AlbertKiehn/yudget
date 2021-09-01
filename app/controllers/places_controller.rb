@@ -16,7 +16,7 @@ class PlacesController < ApplicationController
     @place = Place.new(places_params)
     @place.user = current_user
     if @place.save
-      redirect_to '/places', notice: '***Thank you for uploading your yudget!***'
+      redirect_to places_path, notice: '***Thank you for uploading your yudget!***'
     else
       render :new
     end
@@ -25,6 +25,6 @@ class PlacesController < ApplicationController
   private
 
   def places_params
-    places.require(:place).permit(:name, :category, :description, :summary, :address, :photo, :user)
+    params.require(:place).permit(:name, :category, :description, :summary, :address, :photo, :user).with_defaults(user_id: current_user.id)
   end
 end
