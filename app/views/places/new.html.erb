@@ -1,11 +1,19 @@
-<h1>Add a Yudget place to the community</h1>
-<%= simple_form_for (@place) do |c| %>
-  <%= c.input :name, placeholder: 'What is the name of the Yudget?' %>
-  <%= c.input :category, collection:['food', 'nightlife', 'activities', 'shopping', 'services'], placeholder: 'Whats is the category for your Yudget?' %>
-  <%= c.input :description, placeholder: 'Briefly describe the place and it\'s best offers' %>
-  <%= c.input :summary, placeholder: 'Briefly describe why this place should be listed as Yudget' %>
-  <%= c.input :address, placeholder: 'Please enter the full address of your Yudget' %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-8">
+      <div class="form-new-yudget">
+          <h1>Add a Yudget place to the community</h1>
+            <%= simple_form_for (@place) do |c| %>
+              <%= c.input :name, placeholder: 'What is the name of the Yudget?' %>
+              <%= c.input :category, collection:['food', 'nightlife', 'activities', 'shopping', 'services'], placeholder: 'Whats is the category for your Yudget?' %>
+              <%= c.input :description, placeholder: 'Briefly describe the place and it\'s best offers' %>
+              <%= c.input :summary, placeholder: 'Briefly describe why this place should be listed as Yudget' %>
+              <%= c.input :address, placeholder: 'Please enter the full address of your Yudget' %>
 
-  <%= c.input :photo, as: :file %>
-  <%= c.submit class: 'btn btn-flat' %>
-<% end %>
+              <%= c.input :photo, as: :file %>
+              <%= c.submit class: 'btn btn-primary' %>
+            <% end %>
+      </div>
+    </div>
+  </div>
+</div>
