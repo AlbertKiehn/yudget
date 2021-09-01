@@ -9,15 +9,16 @@
         <% @places.each do |place| %>
           <div class="col-m-6">
             <div class="card pt-3 d-flex justify-content-space-evenly" style="width: 18rem;">
-                <%= link_to place_path(place) do %>
+                <%= link_to place_path(place, :spot => @location) do %>
                   <% if place.photo.attached? %>
                     <%=cl_image_tag place.photo.key, class:"card-img-top"%>
                   <% else  %>
-                    <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Fyen%2Bsymbol&psig=AOvVaw3oncMrW3zlecRnIjHt_pYg&ust=1630582972554000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCOC8yorZ3fICFQAAAAAdAAAAABAD" class="place-img-top" alt="...">
+                    <img src="https://media.timeout.com/images/103070427/image.jpg" width=70% class="place-img-top" alt="...">
                   <% end %>
                   <div class="card-body">
                     <h5 class="card-title"><%= place.name %></h5>
                     <p class="card-text"><%= place.description %></p>
+                    <p> <%= (place.distance_to(@location) * 1000).round %> meters away</p>
                   </div>
                 <% end %>
             </div>
