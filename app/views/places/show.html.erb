@@ -3,6 +3,21 @@
 <h1> <%= @place.address %></h1>
 <h1> <%= @place.user.username %></h1>
 
+<span>
+  <span class="total_upvotes"> <%=@place.id %>
+   <%= @place.get_upvotes.size %>
+  </span>
+
+  <a>
+    <% if current_user.voted_for?(@place) %>
+        <div><%= link_to "unvote", unvote_place_path(@place),  method: :put%>  </div>
+      <% else %>
+        <div><%= link_to "upvote", upvote_place_path(@place), method: :put%>  </div>
+    <% end %>
+  </a>
+</span>
+
+
  <div class="card ml-4 mr-4 rounded p-3 shadow" style=" max-width: 100%;">
   <div class="row g-0 ">
     <div class="col-md-4">
@@ -16,3 +31,4 @@
 </div>
 
 <h1> <%= (@place.distance_to(@location) * 1000).round %> meters away</h1>
+

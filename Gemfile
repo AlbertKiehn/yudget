@@ -67,4 +67,8 @@ gem 'bigdecimal'
 
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 
+
+gem 'acts_as_votable'
+
 gem 'geocoder'
+

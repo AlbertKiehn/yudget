@@ -1,5 +1,4 @@
 class PlacesController < ApplicationController
-
   def index
     @location = params[:spot]
     placesold = Place.where(category: params[:category])
@@ -7,7 +6,11 @@ class PlacesController < ApplicationController
   end
 
   def show
+
+    @user = current_user
+
     @location = params[:spot]
+
     @place = Place.find(params[:id])
   end
 
@@ -38,6 +41,26 @@ class PlacesController < ApplicationController
     config.api_secret = 'a676b67565c6767a6767d6767f676fe1'
     config.secure = true
     config.cdn_subdomain = true
+  end
+
+  # def upvote
+  #   @place = Place.find(params[:id])
+  #   if params[:format] == 'upvote'
+  #     @place.upvotes_by(current_user)
+  #   elsif params[:format] == 'unvote'
+  #     @place.unvote_up(current_user)
+  #   end
+  # end
+  def upvote
+    @place = Place.find(params[:id])
+    @place.liked_by current_user
+    redirect_to place_path(@place)
+  end
+
+  def unvote
+    @place = Place.find(params[:id])
+    @place.downvote_from current_user
+    redirect_to place_path(@place)
   end
 
   private
