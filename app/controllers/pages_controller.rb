@@ -2,7 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    @location = request.safe_location
+    ip = request.remote_ip
+    @location = Geocoder.search(ip)
   end
 
   def categories

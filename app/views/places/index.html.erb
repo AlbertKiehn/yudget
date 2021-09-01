@@ -1,4 +1,5 @@
 <% @places.each do |place| %>
 <h1> <%= link_to place.name, place_path(place, :spot => @location) %></h1>
 <h4> <%= place.summary %></h4>
+<h1> <%= (place.distance_to(@location) * 1000).round %> meters away</h1>
 <% end %>
