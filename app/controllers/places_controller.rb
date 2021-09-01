@@ -1,10 +1,10 @@
 class PlacesController < ApplicationController
-
   def index
     @places = Place.where(category: params[:format])
   end
 
   def show
+    @user = current_user
     @place = Place.find(params[:id])
   end
 
@@ -20,6 +20,26 @@ class PlacesController < ApplicationController
     else
       render :new
     end
+  end
+
+  # def upvote
+  #   @place = Place.find(params[:id])
+  #   if params[:format] == 'upvote'
+  #     @place.upvotes_by(current_user)
+  #   elsif params[:format] == 'unvote'
+  #     @place.unvote_up(current_user)
+  #   end
+  # end
+  def upvote
+    @place = Place.find(params[:id])
+    @place.liked_by current_user
+    redirect_to place_path(@place)
+  end
+
+  def unvote
+    @place = Place.find(params[:id])
+    @place.downvote_from current_user
+    redirect_to place_path(@place)
   end
 
   private

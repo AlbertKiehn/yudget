@@ -2,3 +2,16 @@
 <h1> <%= @place.description %></h1>
 <h1> <%= @place.address %></h1>
 <h1> <%= @place.user.username %></h1>
+<span>
+  <span class="total_upvotes"> <%=@place.id %>
+   <%= @place.get_upvotes.size %>
+  </span>
+
+  <a>
+    <% if current_user.voted_for?(@place) %>
+        <div><%= link_to "unvote", unvote_place_path(@place),  method: :put%>  </div>
+      <% else %>
+        <div><%= link_to "upvote", upvote_place_path(@place), method: :put%>  </div>
+    <% end %>
+  </a>
+</span>
