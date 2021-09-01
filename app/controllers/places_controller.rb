@@ -15,8 +15,8 @@ class PlacesController < ApplicationController
     @place = Place.new
     Cloudinary.config do |config|
       config.cloud_name = 'mk01'
-      config.api_key = '874837483274837'
-      config.api_secret = 'a676b67565c6767a6767d6767f676fe1'
+      config.api_key = '243339615997478'
+      config.api_secret = 'YEyzNmKecdmScbJTs5wcY3KFlO8'
       config.secure = true
       config.cdn_subdomain = true
     end
@@ -32,8 +32,8 @@ class PlacesController < ApplicationController
     end
     Cloudinary.config do |config|
       config.cloud_name = 'mk01'
-      config.api_key = '874837483274837'
-      config.api_secret = 'a676b67565c6767a6767d6767f676fe1'
+      config.api_key = '243339615997478'
+      config.api_secret = 'YEyzNmKecdmScbJTs5wcY3KFlO8'
       config.secure = true
       config.cdn_subdomain = true
     end
