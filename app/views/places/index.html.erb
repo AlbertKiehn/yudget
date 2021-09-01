@@ -1,4 +1,30 @@
-<% @places.each do |place| %>
-<h1> <%= link_to place.name, place_path(place) %></h1>
-<h4> <%= place.summary %></h4>
-<% end %>
+<div class="container p-3 mb-2">
+    <div class="cover mb-4 d-flex align-items-center justify-content-center">
+        <div class="text-center">
+         <h1><strong>Youdgets </strong></h1>
+        </div>
+    </div>
+
+    <div class="cards">
+        <% @places.each do |place| %>
+          <div class="col-m-6">
+            <div class="card pt-3 d-flex justify-content-space-evenly" style="width: 18rem;">
+                <%= link_to place_path(place, :spot => @location) do %>
+                  <% if place.photo.attached? %>
+                    <%=cl_image_tag place.photo.key, class:"card-img-top"%>
+                  <% else  %>
+                    <img src="https://media.timeout.com/images/103070427/image.jpg" width=70% class="place-img-top" alt="...">
+                  <% end %>
+                  <div class="card-body">
+                    <h5 class="card-title"><%= place.name %></h5>
+                    <p class="card-text"><%= place.description %></p>
+                    <p> <%= (place.distance_to(@location) * 1000).round %> meters away</p>
+                  </div>
+                <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

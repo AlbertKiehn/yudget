@@ -2,6 +2,7 @@
 <h1> <%= @place.description %></h1>
 <h1> <%= @place.address %></h1>
 <h1> <%= @place.user.username %></h1>
+
 <span>
   <span class="total_upvotes"> <%=@place.id %>
    <%= @place.get_upvotes.size %>
@@ -15,3 +16,19 @@
     <% end %>
   </a>
 </span>
+
+
+ <div class="card ml-4 mr-4 rounded p-3 shadow" style=" max-width: 100%;">
+  <div class="row g-0 ">
+    <div class="col-md-4">
+        <% if @place.photo.attached? %>
+          <%= cl_image_tag @place.photo.key, height: 350, width: 450, crop: :fill %>
+        <% else  %>
+        <img src="https://media.timeout.com/images/103070427/image.jpg" width=100% class="place-img-top" alt="...">
+        <% end %>
+        </div>
+    </div>
+</div>
+
+<h1> <%= (@place.distance_to(@location) * 1000).round %> meters away</h1>
+

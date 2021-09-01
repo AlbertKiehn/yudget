@@ -1,2 +1,9 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+<%= form_with url: "/categories", method: :get do |form| %>
+  <%= form.label :format, "Type in location" %>
+  <%= form.text_field :format %>
+  <%= form.submit "Search" %>
+<% end %>
+<h1>OR:</h1>
+<h1> <%= link_to "Select current location", categories_path(@location) %></h1>

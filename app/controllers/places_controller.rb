@@ -1,10 +1,16 @@
 class PlacesController < ApplicationController
   def index
-    @places = Place.where(category: params[:format])
+    @location = params[:spot]
+    placesold = Place.where(category: params[:category])
+    @places = placesold.near(@location, 3)
   end
 
   def show
+
     @user = current_user
+
+    @location = params[:spot]
+
     @place = Place.find(params[:id])
   end
 
@@ -16,10 +22,25 @@ class PlacesController < ApplicationController
     @place = Place.new(places_params)
     @place.user = current_user
     if @place.save
-      redirect_to '/places', notice: '***Thank you for uploading your yudget!***'
+      redirect_to places_path, notice: '***Thank you for uploading your yudget!***'
     else
       render :new
     end
+    Cloudinary.config do |config|
+      config.cloud_name = 'sample'
+      config.api_key = '874837483274837'
+      config.api_secret = 'a676b67565c6767a6767d6767f676fe1'
+      config.secure = true
+      config.cdn_subdomain = true
+    end
+  end
+
+  Cloudinary.config do |config|
+    config.cloud_name = 'sample'
+    config.api_key = '874837483274837'
+    config.api_secret = 'a676b67565c6767a6767d6767f676fe1'
+    config.secure = true
+    config.cdn_subdomain = true
   end
 
   # def upvote
@@ -45,6 +66,6 @@ class PlacesController < ApplicationController
   private
 
   def places_params
-    places.require(:place).permit(:name, :category, :description, :summary, :address, :photo, :user)
+    params.require(:place).permit(:name, :category, :description, :summary, :address, :photo, :user).with_defaults(user_id: current_user.id)
   end
 end
