@@ -37,6 +37,7 @@ class PlacesController < ApplicationController
       config.secure = true
       config.cdn_subdomain = true
     end
+    redirect_to '/'
   end
 
   def upvote
