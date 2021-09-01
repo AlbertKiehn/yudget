@@ -2,7 +2,8 @@ class PlacesController < ApplicationController
 
   def index
     @location = params[:spot]
-    @places = Place.where(category: params[:category])
+    placesold = Place.where(category: params[:category])
+    @places = placesold.near(@location, 3)
   end
 
   def show
