@@ -26,7 +26,7 @@ class PlacesController < ApplicationController
     @place = Place.new(places_params)
     @place.user = current_user
     if @place.save
-      redirect_to places_path, notice: '***Thank you for uploading your yudget!***'
+      redirect_to "/", notice: '***Thank you for uploading your yudget!***'
     else
       render :new
     end
@@ -37,7 +37,6 @@ class PlacesController < ApplicationController
       config.secure = true
       config.cdn_subdomain = true
     end
-    redirect_to '/'
   end
 
   def upvote
