@@ -13,31 +13,30 @@ class PlacesController < ApplicationController
 
   def new
     @place = Place.new
+    Cloudinary.config do |config|
+      config.cloud_name = 'mk01'
+      config.api_key = '243339615997478'
+      config.api_secret = 'YEyzNmKecdmScbJTs5wcY3KFlO8'
+      config.secure = true
+      config.cdn_subdomain = true
+    end
   end
 
   def create
     @place = Place.new(places_params)
     @place.user = current_user
     if @place.save
-      redirect_to places_path, notice: '***Thank you for uploading your yudget!***'
+      redirect_to "/", notice: '***Thank you for uploading your yudget!***'
     else
       render :new
     end
     Cloudinary.config do |config|
-      config.cloud_name = 'sample'
-      config.api_key = '874837483274837'
-      config.api_secret = 'a676b67565c6767a6767d6767f676fe1'
+      config.cloud_name = 'mk01'
+      config.api_key = '243339615997478'
+      config.api_secret = 'YEyzNmKecdmScbJTs5wcY3KFlO8'
       config.secure = true
       config.cdn_subdomain = true
     end
-  end
-
-  Cloudinary.config do |config|
-    config.cloud_name = 'sample'
-    config.api_key = '874837483274837'
-    config.api_secret = 'a676b67565c6767a6767d6767f676fe1'
-    config.secure = true
-    config.cdn_subdomain = true
   end
 
   def upvote
