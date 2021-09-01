@@ -1,6 +1,6 @@
 <h1> <%= @place.name %></h1>
 <h1> <%= @place.description %></h1>
-<h1> <%= @place.address %></h1>
+<h1> <%= link_to "#{@place.address}", "https://maps.google.com/?q=#{@place.address}", :target => "_blank" %></h1>
 <h1> <%= @place.user.username %></h1>
 
 <span>
@@ -9,10 +9,10 @@
   </span>
 
   <a>
-    <% if current_user.voted_for?(@place) %>
-        <div><%= link_to "unvote", unvote_place_path(@place),  method: :put%>  </div>
+    <% if current_user.voted_for?(@place, :spot => @location) %>
+        <div><%= link_to "unvote", unvote_place_path(@place, :spot => @location),  method: :put%>  </div>
       <% else %>
-        <div><%= link_to "upvote", upvote_place_path(@place), method: :put%>  </div>
+        <div><%= link_to "upvote", upvote_place_path(@place, :spot => @location), method: :put%>  </div>
     <% end %>
   </a>
 </span>
@@ -31,4 +31,3 @@
 </div>
 
 <h1> <%= (@place.distance_to(@location) * 1000).round %> meters away</h1>
-

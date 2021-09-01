@@ -6,11 +6,8 @@ class PlacesController < ApplicationController
   end
 
   def show
-
     @user = current_user
-
     @location = params[:spot]
-
     @place = Place.find(params[:id])
   end
 
@@ -43,24 +40,18 @@ class PlacesController < ApplicationController
     config.cdn_subdomain = true
   end
 
-  # def upvote
-  #   @place = Place.find(params[:id])
-  #   if params[:format] == 'upvote'
-  #     @place.upvotes_by(current_user)
-  #   elsif params[:format] == 'unvote'
-  #     @place.unvote_up(current_user)
-  #   end
-  # end
   def upvote
+    @location = params[:spot]
     @place = Place.find(params[:id])
     @place.liked_by current_user
-    redirect_to place_path(@place)
+    redirect_to place_path(@place, :spot => @location)
   end
 
   def unvote
+    @location = params[:spot]
     @place = Place.find(params[:id])
     @place.downvote_from current_user
-    redirect_to place_path(@place)
+    redirect_to place_path(@place, :spot => @location)
   end
 
   private
