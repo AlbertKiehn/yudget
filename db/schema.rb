@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_09_01_103458) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,7 +52,8 @@ ActiveRecord::Schema.define(version: 2021_09_01_103458) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-
+    t.float "latitude"
+    t.float "longitude"
     t.integer "cached_votes_total", default: 0
     t.integer "cached_votes_score", default: 0
     t.integer "cached_votes_up", default: 0
@@ -61,10 +61,6 @@ ActiveRecord::Schema.define(version: 2021_09_01_103458) do
     t.integer "cached_weighted_score", default: 0
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
-
-    t.float "latitude"
-    t.float "longitude"
-
     t.index ["user_id"], name: "index_places_on_user_id"
   end
 
@@ -80,7 +76,6 @@ ActiveRecord::Schema.define(version: 2021_09_01_103458) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
 
   create_table "votes", force: :cascade do |t|
     t.string "votable_type"
@@ -98,9 +93,7 @@ ActiveRecord::Schema.define(version: 2021_09_01_103458) do
     t.index ["voter_type", "voter_id"], name: "index_votes_on_voter_type_and_voter_id"
   end
 
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-
   add_foreign_key "places", "users"
 end
