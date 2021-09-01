@@ -13,6 +13,13 @@ class PlacesController < ApplicationController
 
   def new
     @place = Place.new
+    Cloudinary.config do |config|
+      config.cloud_name = 'mk01'
+      config.api_key = '874837483274837'
+      config.api_secret = 'a676b67565c6767a6767d6767f676fe1'
+      config.secure = true
+      config.cdn_subdomain = true
+    end
   end
 
   def create
@@ -24,20 +31,12 @@ class PlacesController < ApplicationController
       render :new
     end
     Cloudinary.config do |config|
-      config.cloud_name = 'sample'
+      config.cloud_name = 'mk01'
       config.api_key = '874837483274837'
       config.api_secret = 'a676b67565c6767a6767d6767f676fe1'
       config.secure = true
       config.cdn_subdomain = true
     end
-  end
-
-  Cloudinary.config do |config|
-    config.cloud_name = 'sample'
-    config.api_key = '874837483274837'
-    config.api_secret = 'a676b67565c6767a6767d6767f676fe1'
-    config.secure = true
-    config.cdn_subdomain = true
   end
 
   def upvote
