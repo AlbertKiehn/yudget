@@ -1,10 +1,13 @@
 class PlacesController < ApplicationController
 
   def index
-    @places = Place.where(category: params[:format])
+    @location = params[:spot]
+    placesold = Place.where(category: params[:category])
+    @places = placesold.near(@location, 3)
   end
 
   def show
+    @location = params[:spot]
     @place = Place.find(params[:id])
   end
 
