@@ -1,33 +1,42 @@
-<h1> <%= @place.name %></h1>
-<h1> <%= @place.description %></h1>
-<h1> <%= link_to "#{@place.address}", "https://maps.google.com/?q=#{@place.address}", :target => "_blank" %></h1>
-<h1> <%= @place.user.username %></h1>
-
-<span>
-  <span class="total_upvotes">
-   <%= @place.get_upvotes.size %>
-  </span>
-
-  <a>
-    <% if current_user.liked?(@place, :spot => @location) %>
-        <div><%= link_to "unvote", unvote_place_path(@place, :spot => @location),  method: :put, remote: true%></div>
-      <% else %>
-        <div><%= link_to "upvote", upvote_place_path(@place, :spot => @location), method: :put, remote: true%> </div>
-    <% end %>
-  </a>
-</span>
-
-
- <div class="card ml-4 mr-4 rounded p-3 shadow" style=" max-width: 100%;">
-  <div class="row g-0 ">
-    <div class="col-md-4">
-        <% if @place.photo.attached? %>
-          <%= cl_image_tag @place.photo.key, height: 350, width: 450, crop: :fill %>
-        <% else  %>
-        <img src="https://media.timeout.com/images/103070427/image.jpg" width=100% class="place-img-top" alt="...">
-        <% end %>
+<div id="show">
+  <div class="card p-3 shadow" style=" max-width: 80%;">
+      <div class="d-flex justify-content-center mt-5">
+        <h1 id="youdget"> <%= @place.name %></h1>
+        <div id="upvote">
+              <% if current_user.liked?(@place, :spot => @location) %>
+                  <div><%= link_to unvote_place_path(@place, :spot => @location),  method: :put, remote: true do%>
+                  <i class="fas fa-caret-down fa-7x"></i></div> <% end %>
+                <% else %>
+                  <div><%= link_to upvote_place_path(@place, :spot => @location), method: :put, remote: true do%>
+                  <i class="fas fa-caret-up fa-7x"></i></div><% end %>
+              <% end %>
+          <div id="vote_counter"class="total_upvotes">
+            <%= @place.get_upvotes.size %>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
+      <div class="d-flex justify-content-evenly align-items-center">
+      <div class="row p-5">
+          <div class="col-lg-6 mb-5 p-3">
+            <% if @place.photo.attached? %>
+              <%= cl_image_tag @place.photo.key, class: "w-100"%>
+            <% else  %>
+            <img src="https://media.timeout.com/images/103070427/image.jpg"  class="place-img-top w-100" alt="...">
+            <% end %>
+          </div>
+          <div class="col-lg-6 p-3 justify-content-center">
+            <h3> <%= @place.description %></h3>
+          </div>
+        </div>
+      </div>
+          <div class="text-center">
+            <h1 class="btn btn-primary"> <%= link_to "#{@place.address}", "https://maps.google.com/?q=#{@place.address}", :target => "_blank",style:"color: white; text-decoration: none;" %></h1>
 
-<h1> <%= (@place.distance_to(@location) * 1000).round %> meters away</h1>
+          <h4 class="text-muted"> <%= (@place.distance_to(@location) * 1000).round %> meters away</h4>
+          </div>
+        <div>
+          <p> <small class="text-muted">uploaded by:<%= @place.user.username %></small></p>
+        </div>
+      </div>
+  </div>
+</div>
