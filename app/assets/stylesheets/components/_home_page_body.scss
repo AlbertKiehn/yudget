@@ -1,0 +1,88 @@
+.main-text-homepage{
+  margin-top: 200px;
+}
+
+.main-header{
+  margin-bottom: 50px;
+}
+h1{
+  font-size: 64px;
+  letter-spacing: 1.2;
+}
+
+.image-home-page img{
+  width: 800px;
+  height: 450px;
+}
+
+.main-pic{
+  position: absolute;
+  top: 200px;
+  right: 40px;
+}
+
+input, button {
+  margin: 0;
+  padding: 0;
+}
+
+p > a{
+  text-decoration: none;
+}
+
+p{
+  margin-top: 8px;
+  text-align: center;
+  width: 250px;
+}
+
+.search-form{
+  height: 50px;
+  width: 250px;
+  border: 2px solid black;
+  padding: 25px;
+}
+
+.btn-primary{
+  position: absolute;
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  height: 54px;
+}
+
+.your-location-button{
+  border: 2px solid black;
+  width: 250px;
+  height: 50px;
+  padding: 8px;
+  background-color: #4B6587;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.your-location-button a{
+  color: white;
+  justify-content: center;
+}
+
+.blue-block{
+  width: 400px;
+  height: 100vh;
+  background-color: #4B6587;
+}
+
+.main-container{
+  display: flex;
+}
+
+.homepage-searchbox{
+  width: 80vw;
+  margin-left: 55px;
+  margin-top: 0;
+}
+.text-homepage{
+  margin-top: 120px;
+}

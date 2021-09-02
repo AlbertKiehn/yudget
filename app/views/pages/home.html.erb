@@ -1,9 +1,36 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= form_with url: "/categories", method: :get do |form| %>
-  <%= form.label :format, "Type in location" %>
-  <%= form.text_field :format %>
-  <%= form.submit "Search" %>
-<% end %>
-<h1>OR:</h1>
-<h1> <%= link_to "Select current location", categories_path(@location) %></h1>
+<div class="d flex aligh items center">
+  <%# <div class="main-text-homepage"> %>
+    <div class="main-container">
+          <div class="homepage-searchbox">
+          <div class="text-homepage">
+              <h1 class= "main-header1">YUDGET</h1>
+                <h1 class= "main-header">Enjoy life on a budget</h1>
+                <%= form_with url: "/categories", method: :get do |form| %>
+                  <%#= form.label :format, "Type in the address " %>
+                  <%= form.text_field :format, placeholder:"Type address to find Yudgets" , class:"search-form" %>
+                  <%= form.submit "Search" , class: "btn btn-primary" %>
+                <% end %>
+
+                <p>or</p>
+
+                <div class="your-location-button">
+                <%= link_to "Select your current location", categories_path(@location)  %>
+                </div>
+          </div>
+          </div>
+          <div class="blue-block">
+        </div>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+<div class="image-home-page">
+        <%#= image_tag asset_url('homepagepic.png') %>
+        <%= image_tag 'https://user-images.githubusercontent.com/72749819/131869602-20480bfe-a25f-4999-9b7e-8f77fc42a96d.png', class:'main-pic'%>
+</div>
