@@ -1,0 +1,28 @@
+#category .card :hover {
+  background-color: #4C6487;
+  color: #F7F6F1;
+}
+
+#category .container {
+  align-items: center;
+  padding: 8px 20px;
+}
+
+#category .card {
+  width: 80%;
+  margin: 40px auto;
+  height: 100px;
+  border-color: #4C6487;
+  border-width: 6px;
+}
+
+#category .card h1 {
+  line-height: 70px;
+}
+
+
+#categories-header {
+  font-size: 60px;
+  letter-spacing: 8px;
+  margin: 30px;
+}
