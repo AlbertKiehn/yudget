@@ -1,8 +1,9 @@
 class PlacesController < ApplicationController
   def index
+    @category = params[:category]
     @location = params[:spot]
     placesold = Place.where(category: params[:category])
-    @places = placesold.near(@location, 3)
+    @places = placesold.near(@location, 8)
   end
 
   def show
@@ -58,6 +59,26 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @place.downvote_from current_user
     redirect_to place_path(@place, :spot => @location)
+  end
+
+  def upvotes
+    @category = params[:category]
+    @location = params[:spot]
+    @place = Place.find(params[:id])
+    @place.liked_by current_user
+    placesold = Place.where(category: params[:category])
+    @places = placesold.near(@location, 3)
+    redirect_to places_path(@place, :category => @category, :spot => @location)
+  end
+
+  def unvotes
+    @category = params[:category]
+    @location = params[:spot]
+    @place = Place.find(params[:id])
+    @place.downvote_from current_user
+    placesold = Place.where(category: params[:category])
+    @places = placesold.near(@location, 3)
+    redirect_to places_path(@place, :category => @category, :spot => @location)
   end
 
   private
