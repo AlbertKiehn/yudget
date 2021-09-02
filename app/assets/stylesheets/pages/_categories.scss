@@ -1,11 +1,8 @@
-#category .card :hover {
+#category .card:hover {
   background-color: #4C6487;
+  a {
   color: #F7F6F1;
-}
-
-#category .container {
-  align-items: center;
-  padding: 8px 20px;
+  }
 }
 
 #category .card {
@@ -14,12 +11,10 @@
   height: 100px;
   border-color: #4C6487;
   border-width: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-#category .card h1 {
-  line-height: 70px;
-}
-
 
 #categories-header {
   font-size: 60px;
