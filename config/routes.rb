@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     member do
       put 'upvote'
       put 'unvote'
+      put 'upvotes'
+      put 'unvotes'
     end
   end
 end

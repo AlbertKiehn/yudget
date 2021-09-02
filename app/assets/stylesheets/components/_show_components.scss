@@ -1,0 +1,29 @@
+#show .card {
+border-width: 6px;
+border-color:#4B6587;
+background-color:#F7F6F2;
+margin: 40px auto;
+padding: 32px;
+margin-top: 100px;
+}
+#upvote {
+margin-left: 250px;
+position: relative;
+}
+#youdget {
+margin-left: 300px;
+font-size: 60px;
+text-decoration: underline;
+color: #4B6587;
+}
+#vote_counter {
+font-size: 30px;
+position: absolute;
+top: 75px;
+left: 40%;
+}
+.btn-primary {
+  height: 60px;
+  width: 300px;
+  padding-top: 15px;
+}
