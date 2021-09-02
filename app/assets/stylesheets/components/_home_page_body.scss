@@ -43,13 +43,17 @@ p{
   padding: 25px;
 }
 
-.btn-primary{
+.btn-homepage{
   position: absolute;
   border-top: 2px solid black;
   border-right: 2px solid black;
   border-bottom: 2px solid black;
   height: 54px;
+  width: 80px;
+  background-color: #4B6587;
+  color: white;
 }
+
 
 .your-location-button{
   border: 2px solid black;
