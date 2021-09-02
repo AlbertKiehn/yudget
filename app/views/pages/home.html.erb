@@ -8,11 +8,10 @@
                 <%= form_with url: "/categories", method: :get do |form| %>
                   <%#= form.label :format, "Type in the address " %>
                   <%= form.text_field :format, placeholder:"Type address to find Yudgets" , class:"search-form" %>
-                  <%= form.submit "Search" , class: "btn btn-primary" %>
+                  <%= form.submit "Search" , class: "btn-homepage" %>
                 <% end %>
 
                 <p>or</p>
-
                 <div class="your-location-button">
                 <%= link_to "Select your current location", categories_path(@location)  %>
                 </div>
