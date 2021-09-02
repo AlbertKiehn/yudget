@@ -4,15 +4,15 @@
 <h1> <%= @place.user.username %></h1>
 
 <span>
-  <span class="total_upvotes"> <%=@place.id %>
+  <span class="total_upvotes">
    <%= @place.get_upvotes.size %>
   </span>
 
   <a>
-    <% if current_user.voted_for?(@place, :spot => @location) %>
-        <div><%= link_to "unvote", unvote_place_path(@place, :spot => @location),  method: :put%>  </div>
+    <% if current_user.liked?(@place, :spot => @location) %>
+        <div><%= link_to "unvote", unvote_place_path(@place, :spot => @location),  method: :put, remote: true%></div>
       <% else %>
-        <div><%= link_to "upvote", upvote_place_path(@place, :spot => @location), method: :put%>  </div>
+        <div><%= link_to "upvote", upvote_place_path(@place, :spot => @location), method: :put, remote: true%> </div>
     <% end %>
   </a>
 </span>
