@@ -1,29 +1,29 @@
 <div id="places">
 <h1 id="places-header"><center>places</center></h1>
-  <% @places.each do |place| %>
-<div class="card-product">
-  <% if place.photo.attached? %>
-    <%=cl_image_tag place.photo.key%>
-  <% else  %>
-    <img src="https://media.timeout.com/images/103070427/image.jpg" width=70% class="place-img-left" alt="...">
-  <% end %>
-  <div class="card-product-infos">
-    <h2><%= link_to "#{place.name}  -  #{(place.distance_to(@location) * 1000).round} meters away", place_path(place, :spot => @location) %></h2>
-    <p>                                                   </p>
-    <h3><%= place.summary %><h3>
-  </div>
-  <div id="placehold" align="right">
-    <% if current_user.liked?(place, :spot => @location) %>
-      <div><%= link_to unvotes_place_path(place, :category => @category, :spot => @location),  method: :put, remote: true do%>
-      <i class="fas fa-caret-down fa-6x"></i></div>
+  <% (@places.sort_by {|obj| obj.get_upvotes.size }).reverse.each do |place| %>
+    <div class="card-product">
+      <% if place.photo.attached? %>
+        <%=cl_image_tag place.photo.key%>
+      <% else  %>
+        <img src="https://media.timeout.com/images/103070427/image.jpg" width=70% class="place-img-left" alt="...">
       <% end %>
-    <% else %>
-      <div><%= link_to upvotes_place_path(place, :category => @category, :spot => @location), method: :put, remote: true do%>
-      <i class="fas fa-caret-up fa-6x"></i></div>
-      <% end %>
+      <div class="card-product-infos">
+        <h2><%= link_to "#{place.name}  -  #{(place.distance_to(@location) * 1000).round} meters away", place_path(place, :spot => @location) %></h2>
+        <p>                                                   </p>
+        <h3><%= place.summary %><h3>
+      </div>
+      <div id="placehold" align="right">
+        <% if current_user.liked?(place, :spot => @location) %>
+          <div><%= link_to unvotes_place_path(place, :category => @category, :spot => @location),  method: :put, remote: true do%>
+          <i class="fas fa-caret-down fa-6x"></i></div>
+          <% end %>
+        <% else %>
+          <div><%= link_to upvotes_place_path(place, :category => @category, :spot => @location), method: :put, remote: true do%>
+          <i class="fas fa-caret-up fa-6x"></i></div>
+          <% end %>
+        <% end %>
+        <h3 id="johannes"><%= place.get_upvotes.size %></h3>
+      </div>
+    </div>
     <% end %>
-    <h3 id="johannes"><%= place.get_upvotes.size %></h3>
-  </div>
-</div>
-<% end %>
-</div>
+    </div>
