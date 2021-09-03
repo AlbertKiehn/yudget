@@ -6,8 +6,8 @@
             <%= simple_form_for (@place) do |c| %>
               <%= c.input :name, placeholder: 'What is the name of the Yudget?' %>
               <%= c.input :category, collection:['food', 'nightlife', 'activities', 'shopping', 'services'], placeholder: 'Whats is the category for your Yudget?' %>
-              <%= c.input :description, placeholder: 'Briefly describe the place and it\'s best offers' %>
-              <%= c.input :summary, placeholder: 'Briefly describe why this place should be listed as Yudget' %>
+              <%= c.input :description, placeholder: 'Leave a description of this place and maybe advise or good options regarding it as well' %>
+              <%= c.input :summary, placeholder: 'Briefly state the reasons for going to this yudget' %>
               <%= c.input :address, placeholder: 'Please enter the full address of your Yudget' %>
 
               <%= c.input :photo, as: :file %>

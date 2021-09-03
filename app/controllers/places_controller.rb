@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
     @category = params[:category]
     @location = params[:spot]
     placesold = Place.where(category: params[:category])
-    @places = placesold.near(@location, 8)
+    @places = placesold.near(@location, 5)
     Cloudinary.config do |config|
       config.cloud_name = 'mk01'
       config.api_key = '243339615997478'
