@@ -12,14 +12,14 @@
         <p>                                                   </p>
         <h3><%= place.summary %><h3>
       </div>
-      <div id="placehold" align="right">
-        <% if current_user.liked?(place, :spot => @location) %>
-          <div><%= link_to unvotes_place_path(place, :category => @category, :spot => @location),  method: :put, remote: true do%>
-          <i class="fas fa-caret-down fa-6x"></i></div>
-          <% end %>
-        <% else %>
-          <div><%= link_to upvotes_place_path(place, :category => @category, :spot => @location), method: :put, remote: true do%>
-          <i class="fas fa-caret-up fa-6x"></i></div>
+  <div id="placehold" align="right">
+    <% if current_user.liked?(place, :spot => @location) %>
+      <div><%= link_to unvotes_place_path(place, :category => @category, :spot => @location),  method: :put, remote: true do%>
+      <i class="fas fa-heart fa-3x"></i></div>
+      <% end %>
+    <% else %>
+      <div><%= link_to upvotes_place_path(place, :category => @category, :spot => @location), method: :put, remote: true do%>
+      <i class="far fa-heart fa-3x"></i></div>
           <% end %>
         <% end %>
         <h3 id="johannes"><%= place.get_upvotes.size %></h3>
