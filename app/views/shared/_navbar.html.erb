@@ -9,7 +9,8 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
-            <h4 class="nav-darkblue"><u><%= link_to "LOG OUT", destroy_user_session_path, class: "nav-link ", method: :delete %></u></h4>
+            <h4 class="nav-darkblue"><u><%= link_to "LOG OUT", destroy_user_session_path, class: "nav-link navbar-home", method: :delete %></u></h4>
+            <%= yield(:navbar_home) %>
         </li>
       <% else %>
         <li class="nav-item">
