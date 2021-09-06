@@ -6,6 +6,11 @@ class Place < ApplicationRecord
   validates :description, length: { minimum: 200, maximum: 405 }
   validates :summary, length: { minimum: 10, maximum: 200 }
   validates :address, uniqueness: true
+  validates :description, length: { minimum: 200 }
+  validates :description, length: { maximum: 405 }
+  validates :summary, length: { minimum: 10 }
+  validates :summary, length: { maximum: 100 }
+  validates :photo, presence: true
 
   acts_as_votable
 

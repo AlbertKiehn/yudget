@@ -1,3 +1,4 @@
+<h1 id="places-header"><center>liked places</center></h1>
 <% @places.each do |place| %>
 <% if current_user.liked?(place) %>
   <div class="card-product">
@@ -10,13 +11,6 @@
         <h2><%= link_to "#{place.name}", showplace_path(:id => place.id) %></h2>
         <p>                                                   </p>
         <h3><%= place.summary %><h3>
-      </div>
-        <% if place.get_upvotes.size > 1 || place.get_upvotes.size == 0%>
-        <h3 id="johannes"><% place.get_upvotes.size %> Likes</h3>
-        <% else %>
-        <h3 id="johannes"> 1 Like</h3>
-        <% end %>
-      </div>
     </div>
     <% end %>
     </div>
