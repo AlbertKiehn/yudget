@@ -12,4 +12,6 @@ Rails.application.routes.draw do
       put 'unvotes'
     end
   end
+  get 'likedplaces', to: 'places#likedplaces'
+  get 'showplace', to: 'places#showplace'
 end
