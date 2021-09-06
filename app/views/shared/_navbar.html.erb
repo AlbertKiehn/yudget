@@ -9,11 +9,11 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
-            <h4><u><%= link_to "LOG OUT", destroy_user_session_path, method: :delete %></u></h4>
+            <h4 class="nav-darkblue"><u><%= link_to "LOG OUT", destroy_user_session_path, class: "nav-link ", method: :delete %></u></h4>
         </li>
       <% else %>
         <li class="nav-item">
-          <h4><u><%= link_to "LOGIN", new_user_session_path, class: "nav-link" %></u></h4>
+          <h4 class="nav-darkblue"><u><%= link_to "LOGIN", new_user_session_path, class: "nav-link " %></u></h4>
         </li>
       <% end %>
     </ul>
