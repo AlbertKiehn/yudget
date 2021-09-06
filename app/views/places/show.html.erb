@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="d-flex justify-content-evenly align-items-center mt-2">
-      <div class="row p-5">
+      <div class="row p-4">
           <div class="col-lg-6 ">
             <% if @place.photo.attached? %>
               <%= cl_image_tag @place.photo.key, height: 350, width: 500, crop: :fill%>
@@ -31,7 +31,6 @@
       </div>
           <div class="text-center">
             <h1 class="btn btn-primary"> <%= link_to "#{@place.address}", "https://maps.google.com/?q=#{@place.address}", :target => "_blank",style:"color: white; text-decoration: none;" %></h1>
-
           <h4 class="text-muted mb-2"> <%= (@place.distance_to(@location) * 1000).round %> meters away</h4>
           </div>
       </div>
