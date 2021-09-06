@@ -74,8 +74,11 @@ p{
 
 .blue-block{
   width: 400px;
-  height: 100vh;
+  height: 100vw;
   background-color: #4B6587;
+  position: absolute;
+  top: 0;
+  left: 1000px;
 }
 
 .main-container{
