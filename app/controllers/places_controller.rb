@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
     @category = params[:category]
     @location = params[:spot]
     placesold = Place.where(category: params[:category])
-    @places = placesold.near(@location, 8)
+    @places = placesold.near(@location, 5)
     Cloudinary.config do |config|
       config.cloud_name = 'mk01'
       config.api_key = '243339615997478'
@@ -86,6 +86,23 @@ class PlacesController < ApplicationController
     placesold = Place.where(category: params[:category])
     @places = placesold.near(@location, 3)
     redirect_to places_path(@place, :category => @category, :spot => @location)
+  end
+
+  def likedplaces
+    @places = Place.all
+    @user = current_user
+  end
+
+  def showplace
+    @user = current_user
+    @place = Place.find(params[:id])
+    Cloudinary.config do |config|
+      config.cloud_name = 'mk01'
+      config.api_key = '243339615997478'
+      config.api_secret = 'YEyzNmKecdmScbJTs5wcY3KFlO8'
+      config.secure = true
+      config.cdn_subdomain = true
+    end
   end
 
   private

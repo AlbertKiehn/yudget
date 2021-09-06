@@ -1,0 +1,23 @@
+<% @places.each do |place| %>
+<% if current_user.liked?(place) %>
+  <div class="card-product">
+      <% if place.photo.attached? %>
+        <%=cl_image_tag place.photo.key%>
+      <% else  %>
+        <img src="https://media.timeout.com/images/103070427/image.jpg" width=70% class="place-img-left" alt="...">
+      <% end %>
+      <div class="card-product-infos">
+        <h2><%= link_to "#{place.name}", showplace_path(:id => place.id) %></h2>
+        <p>                                                   </p>
+        <h3><%= place.summary %><h3>
+      </div>
+        <% if place.get_upvotes.size > 1 || place.get_upvotes.size == 0%>
+        <h3 id="johannes"><% place.get_upvotes.size %> Likes</h3>
+        <% else %>
+        <h3 id="johannes"> 1 Like</h3>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+    </div>
+<% end %>
