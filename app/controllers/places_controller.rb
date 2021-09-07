@@ -105,6 +105,16 @@ class PlacesController < ApplicationController
     end
   end
 
+  def map
+    @places = Place.all
+    @markers = @places.geocoded.map do |place|
+      {
+        lat: place.latitude,
+        lng: place.longitude
+      }
+    end
+  end
+
   private
 
   def places_params
