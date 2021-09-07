@@ -5,7 +5,7 @@
 <% @categories.each do |category| %>
 <%= link_to places_path(:category => category, :spot => @spot) do %>
   <div class="card">
-    <h1><%= category %></h1>
+    <h1 id="categoryeach"><%= category %></h1>
   </div>
 <% end %>
 <% end %>
