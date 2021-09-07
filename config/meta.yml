@@ -1,0 +1,5 @@
+meta_product_name: "YUDGET"
+meta_title: "YUDGET - Enjoy life on a budget"
+meta_description: "YUDGET shows you the best spots in the city for people on a budget. Tested and approved by like-minded people."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@YUDGET1"   # required for Twitter Cards
