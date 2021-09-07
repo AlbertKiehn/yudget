@@ -3,9 +3,12 @@
 <h1 id="categories-header"><center>categories</center></h1>
 <div id="categories">
 <% @categories.each do |category| %>
-<div class="card">
-    <h1><%= link_to "#{category}", places_path(:category => category, :spot => @spot) %></h1>
-</div>
+<%= link_to places_path(:category => category, :spot => @spot) do %>
+  <div class="card">
+    <h1><%= category %></h1>
+  </div>
 <% end %>
+<% end %>
+
 </div>
 </div>
