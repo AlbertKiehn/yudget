@@ -10,8 +10,8 @@
 
 #category .card {
   width: 80%;
-  margin: 40px auto;
-  height: 100px;
+  margin: 30px auto;
+  height: 80px;
   border-color: #4C6487;
   border-width: 6px;
   display: flex;
@@ -22,5 +22,10 @@
 #categories-header {
   font-size: 60px;
   letter-spacing: 8px;
-  margin: 30px;
+  margin: 20px;
+}
+
+#categoryeach {
+  font-size: 40px;
+  letter-spacing: 4px;
 }
