@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   end
   get 'likedplaces', to: 'places#likedplaces'
   get 'showplace', to: 'places#showplace'
+  get 'map', to: 'places#map'
 end
