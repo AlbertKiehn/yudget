@@ -1,0 +1,3 @@
+<h2><%= link_to "#{place.name}", showplace_path(:id => place.id) %></h2>
+<h5><%= place.category %></h5>
+<h6><%= link_to "#{place.address}", "https://maps.google.com/?q=#{place.address}", :target => "_blank" %></h6>
