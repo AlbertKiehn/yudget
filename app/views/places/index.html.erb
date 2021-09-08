@@ -1,5 +1,5 @@
 <div id="places">
-<h1 id="places-header"><center>places</center></h1>
+<h1 id="places-header"><center>yudgets</center></h1>
   <% (@places.sort_by {|obj| obj.get_upvotes.size }).reverse.each do |place| %>
     <div class="card-product">
       <% if place.photo.attached? %>
