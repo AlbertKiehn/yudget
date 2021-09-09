@@ -54,6 +54,53 @@
   .rails-default-error-page div.dialog > a:hover {
     color:grey;
   }
+  body{
+  margin:0;
+}
+
+@keyframes roundaction {
+  0% { left: 0;
+       top: 0;
+  }
+
+  25% { left: 0;
+        top: calc(100% - 75px);
+        background-color: rgba(50, 50, 50, 0.17);
+  }
+
+  50% {
+    top: calc(100% - 75px); /* - the height of the box */
+    left: calc(100% - 75px); /* - the width of the box */
+    background-color: #4B6587;
+  }
+
+  75% {
+    left: calc(100% - 75px);
+    top: 0;
+    background-color: grey;
+  }
+
+  100% {
+    left: 0;
+    top: 0;
+    background-color: #F0E5CF;
+  }
+}
+
+.box{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 75px;
+  height:75px;
+  background-color:#F0E5CF;
+  animation-name: roundaction;
+  animation-duration: 3.5s;
+  animation-fill-mode: forwards;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  /*animation-timing-function: linear; */
+}
   </style>
 </head>
 
@@ -65,5 +112,8 @@
     </div>
     <a href="/">Go back and try again.</a>
   </div>
+      <body>
+        <div class="box"> </div>
+      </body>
 </body>
 </html>
