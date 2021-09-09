@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-8 col-sm-offset-8">
       <div class="form-new-yudget">
-          <h1>Add a Yudget place to the community</h1>
+          <h1>Add a Yudget for the community</h1>
             <%= simple_form_for (@place) do |c| %>
               <%= c.input :name, placeholder: 'What is the name of your Yudget place?' %>
               <%= c.input :category, collection:['food', 'nightlife', 'activities', 'shopping', 'services'], placeholder: 'Whats is the category for your Yudget place?' %>
