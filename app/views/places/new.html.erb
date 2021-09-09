@@ -7,8 +7,8 @@
               <%= c.input :name, placeholder: 'What is the name of your Yudget place?' %>
               <%= c.input :category, collection:['food', 'nightlife', 'activities', 'shopping', 'services'], placeholder: 'Whats is the category for your Yudget place?' %>
               <%= c.input :description, placeholder: 'Leave a description of the place and what you enjoyed most about it (min. 200 characters)',input_html: { minlength: 200, maxlength: 405  } %>
-              <%= c.input :summary, placeholder: 'Briefly state the reasons for reccomending this yudget',input_html: { maxlength: 100 } %>
-              <%= c.input :address, placeholder: 'Please enter the full address of your Yudget' %>
+              <%= c.input :summary, placeholder: 'Briefly state the reasons for recommending this yudget',input_html: { maxlength: 100 } %>
+              <%= c.input :address, as: :string, placeholer: 'Please enter the full address of your Yudget', input_html: { id: 'place_address' } %>
               <%= c.input :photo, as: :file %>
               <%= c.submit 'Create new Yudget' , class: 'btn btn-primary' %>
             <% end %>
