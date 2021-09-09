@@ -1,5 +1,5 @@
 <div id="places">
-<h1 id="places-header"><center>yudgets</center></h1>
+  <h1 id="places-header"><center>yudgets</center></h1>
   <% (@places.sort_by {|obj| obj.get_upvotes.size }).reverse.each do |place| %>
     <div class="card-product">
       <% if place.photo.attached? %>
@@ -12,18 +12,22 @@
         <p>                                                   </p>
         <h3><%= place.summary %><h3>
       </div>
-  <div id="placehold" align="right">
-    <% if current_user.liked?(place, :spot => @location) %>
-      <div><%= link_to unvotes_place_path(place, :category => @category, :spot => @location),  method: :put, remote: true do%>
-      <i class="fas fa-heart fa-3x"></i></div>
-      <% end %>
-    <% else %>
-      <div><%= link_to upvotes_place_path(place, :category => @category, :spot => @location), method: :put, remote: true do%>
-      <i class="far fa-heart fa-3x"></i></div>
-          <% end %>
+      <div id="placehold" class="d-flex flex-column align-items-center justify-content-center" align="right">
+        <% if current_user.liked?(place, :spot => @location) %>
+          <div>
+            <%= link_to unvotes_place_path(place, :category => @category, :spot => @location),  method: :put, remote: true do%>
+              <i class="fas fa-heart fa-3x"></i>
+            <% end %>
+          </div>
+        <% else %>
+          <div>
+            <%= link_to upvotes_place_path(place, :category => @category, :spot => @location), method: :put, remote: true do%>
+              <i class="far fa-heart fa-3x"></i>
+            <% end %>
+          </div>
         <% end %>
         <h3 id="johannes"><%= place.get_upvotes.size %></h3>
       </div>
     </div>
-    <% end %>
-    </div>
+  <% end %>
+</div>
