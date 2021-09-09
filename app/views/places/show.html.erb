@@ -30,7 +30,7 @@
         </div>
       </div>
           <div class="text-center">
-            <h1 class="btn btn-primary"> <%= link_to "Take me here!", "https://maps.google.com/?q=#{@place.address}", :target => "_blank",style:"color: white; text-decoration: none;" %></h1>
+            <h1 class="btn btn-primary"> <%= link_to "Take me there!", "https://maps.google.com/?q=#{@place.address}", :target => "_blank",style:"color: white; text-decoration: none;" %></h1>
           <h4 class="text-muted mb-2"> <%= (@place.distance_to(@location) * 1000).round %> meters away</h4>
           </div>
       </div>
